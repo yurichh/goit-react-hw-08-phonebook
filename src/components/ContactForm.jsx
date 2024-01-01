@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../redux/contactsSlice';
-import { selectContacts } from '../redux/selectors';
+import { addContact } from '../redux/contacts/contactsSlice';
+import { selectContacts } from '../redux/contacts/selectors';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -54,35 +54,38 @@ const ContactForm = () => {
   };
 
   return (
-    <form action="submit" className="add-form" autoComplete="on">
-      <label htmlFor="name" className="add-label">
-        Name
-      </label>
-      <input
-        pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        onChange={handleChange}
-        type="text"
-        name="name"
-        required
-        value={state.name}
-        className="add-input"
-      />
-      <label htmlFor="number" className="add-label">
-        Number
-      </label>
-      <input
-        pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-        onChange={handleChange}
-        type="tel"
-        name="number"
-        required
-        value={state.number}
-        className="add-input"
-      />
-      <button className="add-btn" type="submit" onClick={createContactObj}>
-        Add contact
-      </button>
-    </form>
+    <>
+      <h1 className="title">Phonebook</h1>
+      <form action="submit" className="add-form" autoComplete="on">
+        <label htmlFor="name" className="add-label">
+          Name
+        </label>
+        <input
+          pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          onChange={handleChange}
+          type="text"
+          name="name"
+          required
+          value={state.name}
+          className="add-input"
+        />
+        <label htmlFor="number" className="add-label">
+          Number
+        </label>
+        <input
+          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+          onChange={handleChange}
+          type="tel"
+          name="number"
+          required
+          value={state.number}
+          className="add-input"
+        />
+        <button className="add-btn" type="submit" onClick={createContactObj}>
+          Add contact
+        </button>
+      </form>
+    </>
   );
 };
 

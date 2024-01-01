@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { changeFilter } from '../redux/filterSlice';
+import { changeFilter } from '../redux/filter/filterSlice';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -10,6 +10,7 @@ const Filter = () => {
   };
   return (
     <>
+      <h2 className="title">Contacts</h2>
       <label htmlFor="filter" className="filter-label">
         Find contacts by name
       </label>
