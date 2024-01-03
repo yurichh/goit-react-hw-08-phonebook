@@ -13,7 +13,6 @@ const RegisterPage = () => {
       password: target[2].value,
     };
     dispatch(register(userData));
-    console.log('dispatch(register(userData))', dispatch(register(userData)));
   };
   return (
     <div className="register-wrapper">
