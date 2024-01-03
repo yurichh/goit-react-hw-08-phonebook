@@ -50,6 +50,9 @@ export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
     const {
       auth: { token },
     } = thunkAPI.getState();
+    if (!token) {
+      return;
+    }
     setAuthHeader(token);
     const { data } = await axios('/users/current');
     return data;

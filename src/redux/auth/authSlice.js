@@ -18,19 +18,19 @@ export const authSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(logIn.pending, handlePending)
-      .addCase(logIn.fulfilled, (state, action) => {
-        state = { ...state, ...action.payload };
-        state.isLoggedIn = true;
-        return state;
-      })
+      .addCase(logIn.fulfilled, (state, action) => ({
+        ...state,
+        ...action.payload,
+        isLoggedIn: true,
+      }))
       .addCase(logIn.rejected, handleReject)
 
       .addCase(register.pending, handlePending)
-      .addCase(register.fulfilled, (state, action) => {
-        state = { ...state, ...action.payload };
-        state.isLoggedIn = true;
-        return state;
-      })
+      .addCase(register.fulfilled, (state, action) => ({
+        ...state,
+        ...action.payload,
+        isLoggedIn: true,
+      }))
       .addCase(register.rejected, handleReject)
 
       .addCase(logOut.pending, handlePending)
@@ -44,7 +44,7 @@ export const authSlice = createSlice({
       .addCase(refresh.pending, handlePending)
       .addCase(refresh.fulfilled, (state, action) => {
         state.user = { ...action.payload };
-        state.isLoggedIn = true;
+        state.isRefreshing = true;
       })
       .addCase(refresh.rejected, handleReject),
 });
