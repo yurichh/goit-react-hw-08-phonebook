@@ -12,15 +12,13 @@ const LoginPage = () => {
       password: target[1].value,
     };
     dispatch(logIn(userData));
-    console.log('userData', userData);
   };
   return (
     <div className="login-wrapper">
-      <h2>Login Form</h2>
+      <h2>LOGIN FORM</h2>
       <form
         className="form"
         onSubmit={e => {
-          console.log('submit');
           e.preventDefault();
           handleSubmit(e);
         }}
@@ -41,13 +39,13 @@ const LoginPage = () => {
           autoComplete="password"
         />
         <Button type="submit" variant="outlined" size="medium">
-          Login
+          Log in
         </Button>
       </form>
       <p className="redirect-text">
         Don't have an account?{' '}
         <NavLink to="/register" className="redirect-link">
-          Register
+          Sign in
         </NavLink>
       </p>
     </div>

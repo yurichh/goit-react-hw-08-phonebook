@@ -13,15 +13,15 @@ const RegisterPage = () => {
       password: target[2].value,
     };
     dispatch(register(userData));
+    console.log('dispatch(register(userData))', dispatch(register(userData)));
   };
   return (
     <div className="register-wrapper">
-      <h2>Register Form</h2>
+      <h2>REGISTER FORM</h2>
       <form
         className="form"
         onSubmit={e => {
           e.preventDefault();
-          console.log('e', e);
 
           handleSubmit(e);
         }}
@@ -37,14 +37,14 @@ const RegisterPage = () => {
         />
 
         <Button type="submit" variant="outlined" size="medium">
-          Register
+          Sign in
         </Button>
       </form>
       <p className="redirect-text">
         Already have an account?
         <NavLink to="/login" className="redirect-link">
           {' '}
-          Login
+          Log in
         </NavLink>
       </p>
     </div>

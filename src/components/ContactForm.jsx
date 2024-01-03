@@ -17,6 +17,15 @@ const ContactForm = () => {
   };
 
   const handleAddContact = obj => {
+    if (!state.name || !state.number) {
+      Notiflix.Notify.warning(`Something missed`, {
+        position: 'center-top',
+        distance: '100px',
+        fontSize: '40px',
+        width: '600px',
+      });
+      return;
+    }
     if (checkNameForRepeat(obj.name)) {
       Notiflix.Notify.warning(`${obj.name} is already in contacts`, {
         position: 'center-top',
@@ -27,6 +36,7 @@ const ContactForm = () => {
       return;
     }
     dispatch(addContact(obj));
+    setState({ name: '', number: '' });
   };
   const createContactObj = e => {
     e.preventDefault();
@@ -37,7 +47,6 @@ const ContactForm = () => {
     };
 
     handleAddContact(newContactObj);
-    setState({ name: '', number: '' });
   };
   const handleChange = ({ target: { name, value } }) => {
     setState(prev => ({ ...prev, [name]: value }));
@@ -53,9 +62,9 @@ const ContactForm = () => {
         <input
           pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           onChange={handleChange}
+          required
           type="text"
           name="name"
-          required
           value={state.name}
           className="add-input"
         />
@@ -65,9 +74,9 @@ const ContactForm = () => {
         <input
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           onChange={handleChange}
+          required
           type="tel"
           name="number"
-          required
           value={state.number}
           className="add-input"
         />

@@ -8,7 +8,9 @@ const Homepage = () => {
   return (
     <div className="homepage-wrapper">
       <h2 className="homepage-title">Welcome to the Phonebook App</h2>
-      <p style={{ marginBottom: 10, fontSize: 30 }}>Hello {user.name}!</p>
+      <p style={{ marginBottom: 10, fontSize: 30 }}>
+        Hello {user.name ?? null}!
+      </p>
       <p style={{ marginBottom: 40, fontSize: 30 }}>
         This is your personalized phone book content
       </p>

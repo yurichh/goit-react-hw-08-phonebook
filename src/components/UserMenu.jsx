@@ -15,7 +15,7 @@ const UserMenu = () => {
     <div className="user-menu-wrapper">
       <p className="user-menu-text">Welcome, {user.name} </p>
       <button type="button" onClick={handleClick} className="user-menu-btn">
-        LogOut
+        LOGOUT
       </button>
     </div>
   );

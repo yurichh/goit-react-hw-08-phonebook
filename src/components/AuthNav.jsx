@@ -7,7 +7,7 @@ const AuthNav = () => {
         REGISTER
       </NavLink>
       <NavLink to="/login" className="nav-item">
-        LOG IN
+        LOGIN
       </NavLink>
     </>
   );
