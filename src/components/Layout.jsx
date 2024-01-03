@@ -6,10 +6,10 @@ const Layout = () => {
   return (
     <div>
       <AppBar />
+      <hr style={{ marginBottom: 40 }} />
       <Suspense>
         <Outlet />
       </Suspense>
-      <hr />
     </div>
   );
 };

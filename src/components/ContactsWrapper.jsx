@@ -1,10 +1,18 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from '../redux/contacts/selectors.js';
 import Filter from './Filter';
 import ContactList from './ContactList';
+import { useEffect } from 'react';
+import { fetchContacts } from '../redux/contacts/operations.js';
 
 const ContactsWrapper = () => {
+  const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
     <section className="contacts-wrapper">
       {(contacts.length === 0 && (

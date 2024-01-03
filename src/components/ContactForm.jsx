@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../redux/contacts/contactsSlice';
 import { selectContacts } from '../redux/contacts/selectors';
+import { addContact } from '../redux/contacts/operations';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -30,16 +30,6 @@ const ContactForm = () => {
   };
   const createContactObj = e => {
     e.preventDefault();
-
-    if (!state.name || !state.number) {
-      Notiflix.Notify.warning('Ooops... Something missed', {
-        position: 'center-top',
-        distance: '50px',
-        fontSize: '40px',
-        width: '600px',
-      });
-      return;
-    }
 
     const newContactObj = {
       ...state,

@@ -8,8 +8,15 @@ const AppBar = () => {
   const { isLoggedIn } = useAuth();
   return (
     <header className="header">
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      <ul className="header-nav-list">
+        <li className="header-nav-list-item">
+          {' '}
+          <Navigation />
+        </li>
+        <li className="header-nav-list-item">
+          {isLoggedIn ? <UserMenu /> : <AuthNav />}
+        </li>
+      </ul>
     </header>
   );
 };
