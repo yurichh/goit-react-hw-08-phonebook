@@ -1,12 +1,10 @@
+import { Navigate } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
-import { Route, redirect } from 'react-router-dom';
 
-const PublicRoute = ({ children, restricted = false, ...routeProps }) => {
+const PublicRoute = ({ children }) => {
   const { isLoggedIn } = useAuth();
-  const shouldRedirect = isLoggedIn && restricted;
-  return (
-    <Route {...routeProps}>{shouldRedirect ? redirect('/') : children}</Route>
-  );
+
+  return !isLoggedIn ? children : <Navigate to={'/contacts'} />;
 };
 
 export default PublicRoute;

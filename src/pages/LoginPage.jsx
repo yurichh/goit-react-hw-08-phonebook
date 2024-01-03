@@ -1,14 +1,15 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../redux/auth/operations';
+import { NavLink } from 'react-router-dom';
+import { Button, TextField } from '@mui/material';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const handleSubmit = ({ target: { elements } }) => {
-    const { email, password } = elements;
+  const handleSubmit = ({ target }) => {
     const userData = {
-      email: email.value,
-      password: password.value,
+      email: target[0].value,
+      password: target[1].value,
     };
     dispatch(logIn(userData));
     console.log('userData', userData);
@@ -19,26 +20,36 @@ const LoginPage = () => {
       <form
         className="form"
         onSubmit={e => {
+          console.log('submit');
           e.preventDefault();
           handleSubmit(e);
         }}
       >
-        <input
+        <TextField
           type="email"
-          name="email"
-          className="form-input"
-          placeholder="your email"
+          fullWidth
+          label="Email"
+          variant="standard"
+          autoComplete="email"
         />
-        <input
+        <TextField
+          fullWidth
+          id="filled-password-input"
+          label="Password"
           type="password"
-          name="password"
-          className="form-input"
-          placeholder="your name"
+          variant="standard"
+          autoComplete="password"
         />
-        <button type="submit" className="form-button">
-          Submit
-        </button>
+        <Button type="submit" variant="outlined" size="medium">
+          Login
+        </Button>
       </form>
+      <p className="redirect-text">
+        Don't have an account?{' '}
+        <NavLink to="/register" className="redirect-link">
+          Register
+        </NavLink>
+      </p>
     </div>
   );
 };

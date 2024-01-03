@@ -1,15 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../redux/auth/operations';
+import { NavLink } from 'react-router-dom';
+import { Button, TextField } from '@mui/material';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
-  const handleSubmit = ({ target: { elements } }) => {
-    const { name, email, password } = elements;
+  const handleSubmit = ({ target }) => {
     const userData = {
-      name: name.value,
-      email: email.value,
-      password: password.value,
+      name: target[0].value,
+      email: target[1].value,
+      password: target[2].value,
     };
     dispatch(register(userData));
   };
@@ -20,31 +21,32 @@ const RegisterPage = () => {
         className="form"
         onSubmit={e => {
           e.preventDefault();
+          console.log('e', e);
+
           handleSubmit(e);
         }}
       >
-        <input
-          type="name"
-          name="name"
-          className="form-input"
-          placeholder="your name"
-        />
-        <input
-          type="email"
-          name="email"
-          className="form-input"
-          placeholder="email"
-        />
-        <input
+        <TextField label="Name" fullWidth variant="standard" />
+        <TextField type="email" fullWidth label="Email" variant="standard" />
+        <TextField
+          fullWidth
+          id="filled-password-input"
+          label="Password"
           type="password"
-          name="password"
-          className="form-input"
-          placeholder="your password"
+          variant="standard"
         />
-        <button type="submit" className="form-button">
-          Submit
-        </button>
+
+        <Button type="submit" variant="outlined" size="medium">
+          Register
+        </Button>
       </form>
+      <p className="redirect-text">
+        Already have an account?
+        <NavLink to="/login" className="redirect-link">
+          {' '}
+          Login
+        </NavLink>
+      </p>
     </div>
   );
 };

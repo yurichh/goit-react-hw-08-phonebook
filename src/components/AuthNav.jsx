@@ -4,10 +4,10 @@ const AuthNav = () => {
   return (
     <>
       <NavLink to="/register" className="nav-item">
-        Register
+        REGISTER
       </NavLink>
       <NavLink to="/login" className="nav-item">
-        LogIn
+        LOG IN
       </NavLink>
     </>
   );

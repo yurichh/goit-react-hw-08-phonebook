@@ -8,11 +8,11 @@ const Navigation = () => {
   return (
     <ul className="user-nav">
       <li className="nav-item">
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/">HOME</NavLink>
       </li>
       {showContacts && (
         <li className="nav-item">
-          <NavLink to="/contacts">Contacts</NavLink>
+          <NavLink to="/contacts">CONTACTS</NavLink>
         </li>
       )}
     </ul>
