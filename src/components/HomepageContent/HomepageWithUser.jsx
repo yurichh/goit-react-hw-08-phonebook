@@ -1,5 +1,4 @@
 import { Button } from '@mui/material';
-import { useAuth } from 'hooks/useAuth';
 import { NavLink } from 'react-router-dom';
 
 const HomepageWithUser = () => {
