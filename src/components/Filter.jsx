@@ -20,8 +20,6 @@ const Filter = () => {
       >
         <TextField
           fullWidth
-          width="200px"
-          id="input-with-sx"
           label="Find contacts by name"
           variant="standard"
           onChange={handleFilter}

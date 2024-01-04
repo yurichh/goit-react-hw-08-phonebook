@@ -56,11 +56,15 @@ const ContactForm = () => {
   return (
     <>
       <h1 className="title">Phonebook</h1>
-      <form action="submit" className="add-form" autoComplete="on">
+      <form
+        action="submit"
+        className="add-form"
+        autoComplete="on"
+        onSubmit={createContactObj}
+      >
         <Box
           sx={{
             width: 200,
-            maxWidth: '100%',
           }}
         >
           <TextField
@@ -69,7 +73,7 @@ const ContactForm = () => {
             value={state.name}
             fullWidth
             name="name"
-            label="Name "
+            label="Name"
             variant="standard"
             onChange={handleChange}
           />
@@ -87,13 +91,7 @@ const ContactForm = () => {
             style={{ marginBottom: 15 }}
           />
         </Box>
-        <Button
-          variant="outlined"
-          color="success"
-          size="small"
-          type="submit"
-          onClick={createContactObj}
-        >
+        <Button variant="outlined" color="success" size="small" type="submit">
           Add contact
         </Button>
       </form>
