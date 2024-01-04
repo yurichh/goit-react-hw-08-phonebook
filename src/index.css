@@ -36,20 +36,22 @@ code {
   padding: 10px;
 }
 .contacts-list {
+  box-sizing: border-box;
+  padding: 0 30px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px 20px;
   margin-top: 40px;
   margin-bottom: 50px;
 }
 
 .contacts-item {
   box-sizing: border-box;
-  width: calc((100% - 45px) / 4);
+  width: calc((100% - 60px) / 4);
   border: 1px solid rgba(179, 179, 179, 0.676);
   border-radius: 5px;
   padding: 5px 10px;
