@@ -1,4 +1,4 @@
-const ErrorComp = ({ error }) => {
+const ErrorComponent = ({ error }) => {
   return (
     <div
       style={{
@@ -13,4 +13,4 @@ const ErrorComp = ({ error }) => {
   );
 };
 
-export default ErrorComp;
+export default ErrorComponent;

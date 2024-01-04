@@ -3,12 +3,12 @@ import React from 'react';
 import ContactsWrapper from 'components/ContactsWrapper';
 import { useSelector } from 'react-redux';
 import { selectError } from '../redux/contacts/selectors';
-import ErrorComp from 'components/ErrorComp';
+import ErrorComponent from 'components/ErrorComponent';
 
 const ContactsPage = () => {
   const error = useSelector(selectError);
   return error ? (
-    <ErrorComp error={error} />
+    <ErrorComponent error={error} />
   ) : (
     <>
       <ContactForm />
