@@ -8,11 +8,11 @@ import { fetchContacts } from '../redux/contacts/operations.js';
 const ContactsWrapper = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+  console.log('contacts', contacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
   return (
     <section className="contacts-wrapper">
       {(contacts.length === 0 && (

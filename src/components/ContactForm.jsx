@@ -4,6 +4,7 @@ import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from '../redux/contacts/selectors';
 import { addContact } from '../redux/contacts/operations';
+import { Box, Button, TextField } from '@mui/material';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -56,33 +57,45 @@ const ContactForm = () => {
     <>
       <h1 className="title">Phonebook</h1>
       <form action="submit" className="add-form" autoComplete="on">
-        <label htmlFor="name" className="add-label">
-          Name
-        </label>
-        <input
-          pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          onChange={handleChange}
-          required
-          type="text"
-          name="name"
-          value={state.name}
-          className="add-input"
-        />
-        <label htmlFor="number" className="add-label">
-          Number
-        </label>
-        <input
-          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-          onChange={handleChange}
-          required
-          type="tel"
-          name="number"
-          value={state.number}
-          className="add-input"
-        />
-        <button className="add-btn" type="submit" onClick={createContactObj}>
+        <Box
+          sx={{
+            width: 200,
+            maxWidth: '100%',
+          }}
+        >
+          <TextField
+            required
+            pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            value={state.name}
+            fullWidth
+            name="name"
+            label="Name "
+            variant="standard"
+            onChange={handleChange}
+          />
+
+          <TextField
+            required
+            pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+            value={state.number}
+            fullWidth
+            name="number"
+            type="tel"
+            label="Number"
+            variant="standard"
+            onChange={handleChange}
+            style={{ marginBottom: 15 }}
+          />
+        </Box>
+        <Button
+          variant="outlined"
+          color="success"
+          size="small"
+          type="submit"
+          onClick={createContactObj}
+        >
           Add contact
-        </button>
+        </Button>
       </form>
     </>
   );

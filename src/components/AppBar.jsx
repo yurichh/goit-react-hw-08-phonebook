@@ -5,7 +5,7 @@ import UserMenu from './UserMenu';
 import AuthNav from './AuthNav';
 
 const AppBar = () => {
-  const { isLoggedIn, isRefreshing } = useAuth();
+  const { isLoggedIn } = useAuth();
 
   return (
     <header className="header">
@@ -15,7 +15,7 @@ const AppBar = () => {
           <Navigation />
         </li>
         <li className="header-nav-list-item">
-          {isLoggedIn || isRefreshing ? <UserMenu /> : <AuthNav />}
+          {isLoggedIn ? <UserMenu /> : <AuthNav />}
         </li>
       </ul>
     </header>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeContact } from '../redux/contacts/operations';
+import { Box, Button } from '@mui/material';
 
 const ContactItem = ({ contactData }) => {
   const dispatch = useDispatch();
@@ -16,9 +17,22 @@ const ContactItem = ({ contactData }) => {
       <p className="contacts-item-name">
         {name} :<span className="contacts-item-number">{number}</span>
       </p>
-      <button onClick={handleDelete} className="delete-btn">
-        Delete contact
-      </button>
+      <Box
+        sx={{
+          width: 200,
+          maxWidth: '100%',
+        }}
+      >
+        <Button
+          variant="outlined"
+          fullWidth
+          color="error"
+          size="small"
+          onClick={handleDelete}
+        >
+          Delete contact
+        </Button>
+      </Box>
     </li>
   );
 };
